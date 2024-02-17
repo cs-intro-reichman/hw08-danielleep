@@ -83,7 +83,9 @@ class PlayList {
      *  If such a track is not found, returns -1. */
     public int indexOf(String title) 
     {
+        // #feedback - you need to assign the lower case string to a variable.
         title.toLowerCase();
+        // #feedback - please use variable names that are more meaningful.
         String a;
         for(int i=0; i<this.size; i++)
         {
@@ -138,7 +140,7 @@ class PlayList {
             }
             else
             {
-                this.tracks[i]=null;
+                this.tracks[i]=null; // #feedback - not needed here, you will override this value in the for loop.
                 for(int j=i; j<this.size; j++)
                 {
                     this.tracks[j]=this.tracks[j+1];
@@ -157,6 +159,7 @@ class PlayList {
         int index = indexOf(title);
         if(index>=0)
         {
+            // #feedback - you can use the remove(int i) method you wrote above.
             this.tracks[index]=null;
             for(int j=index; j<=this.size; j++)
             {
@@ -195,7 +198,9 @@ class PlayList {
      */
     private int minIndex(int start) 
     {
+        // #feedback - you need to chack start before accessing the array, otherwise you can get an index out of bounds exception.
         int min=this.tracks[start].getDuration();
+        // #feedback - the starting index is "start", not zero.
         int index=0;
         if(start>=0 && start<=this.size)
         {
@@ -227,6 +232,7 @@ class PlayList {
         int min=0;
         for(int i=0; i<this.size; i++)
         {
+            // #feedback - minIndex will return an index that is greater or equal to i.
             if (i<minIndex(i))
             {
                 min=minIndex(i);
